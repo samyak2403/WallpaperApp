@@ -13,6 +13,9 @@
 
 <img src="https://github.com/samyak2403/WallpaperApp/assets/126759819/c1e11292-7f2e-4341-9482-20a72e029f70" width=30% height=25%/>
 
+<!-- <img src="https://github.com/samyak2403/WallpaperApp/assets/126759819/048a0524-b9a6-4584-83f8-be9e447208e0" width=30% height=30%/> -->
+</br>
+
 
 </ul>
 
