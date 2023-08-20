@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#393939</color>
+    <color name="colorPrimaryDark">#2f2f2f</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="white">#FFFFFF</color>
+    <color name="blank">#0000</color>
+    <color name="black">#393939</color>
+    <color name="transperent">#FFFFFF</color>
+    <color name="colorNegative">#ff1744</color>
+    <color name="colorNavText">#ffffff</color>
+    <color name="colorSettings">#40000000</color>
+    <color name="colorClick">#393939</color>
+    <color name="colorPositive">#212121</color>
+</resources>
