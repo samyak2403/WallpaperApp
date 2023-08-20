@@ -1,3 +1,4 @@
 # WallpaperApp
 
-https://camo.githubusercontent.com/a4da707d8d0210624188dbcfcc15b3af9a5ae983d01c7b3dfd0b7849ece6a10a/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5374617475732d4163746976652d627269676874677265656e
+
+<img src="[https://github.com/HarshAndroid/VideoPlayer/blob/master/Screen_shots_of_app/7.png](https://github.com/samyak2403/WallpaperApp/assets/126759819/15f64e93-eefb-4eee-b78d-31c744e6a32c)https://github.com/samyak2403/WallpaperApp/assets/126759819/15f64e93-eefb-4eee-b78d-31c744e6a32c" width=45% height=30%/>
