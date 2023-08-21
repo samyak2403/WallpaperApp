@@ -9,6 +9,18 @@
     <string name="nav_header_subtitle">arrow@gmail.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+
+    <!--AdMob Start-->
+
+    <string name="app_id">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="banner_id">ca-app-pub-3940256099942544/6300978111</string>
+
+    <string name="app_open_ads_id">ca-app-pub-3940256099942544/3419835294</string>
+
+
+    <!--AdMob End-->
+
+
     <string name="Titile">Wallpapers</string>
     <string name="note">Set Wallpaper</string>
     <string name="font_family_light">sans-serif-light</string>

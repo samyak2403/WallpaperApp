@@ -13,11 +13,15 @@ import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.arrowwouldpro.wallpaperapp.databinding.ActivityViewBinding;
 import com.bumptech.glide.Glide;
 
 import java.io.IOException;
 
 public class ViewActivity extends AppCompatActivity {
+
+    private ActivityViewBinding binding;
+    private Control control;
 
     private ImageView imageView;
     private Button setBack;
@@ -27,11 +31,17 @@ public class ViewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view);
+        binding = ActivityViewBinding.inflate(getLayoutInflater());
+
+
+        setContentView(binding.getRoot());
         imageView = findViewById(R.id.viewImage);
         setBack = findViewById(R.id.setBackground);
 
 
+        control = new Control(this);
+
+        control.loadBannerAd(binding.bannerLayout);
 
 
         Glide.with(this).load(getIntent().getStringExtra("images")).into(imageView);
@@ -45,31 +55,18 @@ public class ViewActivity extends AppCompatActivity {
         });
 
 
-
-
-
-
-
-
-
-
-
-
     }
 
     private void setBackgroundImage() {
-        Bitmap bitmap = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
-        WallpaperManager manager =  WallpaperManager.getInstance(getApplicationContext());
+        Bitmap bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
+        WallpaperManager manager = WallpaperManager.getInstance(getApplicationContext());
         try {
             manager.setBitmap(bitmap);
             Toast.makeText(getApplicationContext(), "Set Wallpaper Successfully ", Toast.LENGTH_SHORT).show();
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             Toast.makeText(this, "Wallpaper not load yet!", Toast.LENGTH_SHORT).show();
         }
     }
-
 
 
 }

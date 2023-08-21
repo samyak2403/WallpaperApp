@@ -25,6 +25,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.arrowwouldpro.wallpaperapp.databinding.ActivityMainBinding;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -32,6 +40,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private ActivityMainBinding binding;
 
     private RecyclerView recyclerView;
     private List<Custom_Items> list;
@@ -41,13 +50,33 @@ public class MainActivity extends AppCompatActivity
     NetworkInfo info;
     ProgressDialog dialog;
 
+//    private AdView mAdView;
+    private  Control control;
+
 
     @SuppressLint("MissingPermission")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+       // Initialize the binding object
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+//                Add request
+
+
+
+
+        control = new Control(this);
+
+
+
+        control.loadBannerAd(binding.bannerLayout);
+
+        //end adssss
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
 
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -58,6 +87,8 @@ public class MainActivity extends AppCompatActivity
 
 
         dialog = new ProgressDialog(this);
+
+
 
 
         ConnectivityManager cm = (ConnectivityManager) getApplicationContext().getSystemService(CONNECTIVITY_SERVICE);
@@ -136,9 +167,6 @@ public class MainActivity extends AppCompatActivity
         list.add(new Custom_Items("https://th.bing.com/th/id/OIP.r6VlfUVnZES1fgk-3pWRSQHaNK?pid=ImgDet&rs=1"));
         list.add(new Custom_Items("https://c4.wallpaperflare.com/wallpaper/50/688/4/dead-or-alive-1280x1024-anime-hot-anime-hd-art-wallpaper-preview.jpg"));
         list.add(new Custom_Items("https://c4.wallpaperflare.com/wallpaper/764/505/66/baby-groot-4k-hd-superheroes-wallpaper-preview.jpg"));
-
-
-
 
 
         list.add(new Custom_Items("https://images.pexels.com/photos/1535162/pexels-photo-1535162.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"));
@@ -343,8 +371,6 @@ public class MainActivity extends AppCompatActivity
 
         }
     }
-
-
 
 
     public void rateme() {

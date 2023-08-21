@@ -25,10 +25,14 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.arrowwouldpro.wallpaperapp.databinding.ActivitySettingsBinding;
 import com.turkialkhateeb.materialcolorpicker.ColorChooserDialog;
 import com.turkialkhateeb.materialcolorpicker.ColorListener;
 
 public class SettingsActivity extends AppCompatActivity {
+
+    private ActivitySettingsBinding binding;
+    private Control control;
     SharedPreferences sharedPreferences, app_preferences;
     SharedPreferences.Editor editor;
     Button button;
@@ -39,24 +43,32 @@ public class SettingsActivity extends AppCompatActivity {
     int appColor;
     Constant constant;
     LinearLayout llHelp, llprivacyPolicy;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = ActivitySettingsBinding.inflate(getLayoutInflater());
+
         app_preferences = PreferenceManager.getDefaultSharedPreferences(this);
         appColor = app_preferences.getInt("color", 0);
         appTheme = app_preferences.getInt("theme", 0);
         themeColor = appColor;
         constant.color = appColor;
 
-        if (themeColor == 0){
+        if (themeColor == 0) {
             setTheme(Constant.theme);
-        }else if (appTheme == 0){
+        } else if (appTheme == 0) {
             setTheme(Constant.theme);
-        }else{
+        } else {
             setTheme(appTheme);
         }
-        setContentView(R.layout.activity_settings);
-        llHelp = (LinearLayout)findViewById(R.id.llhelp);
+        setContentView(binding.getRoot());
+
+        control = new Control(this);
+
+        control.loadBannerAd(binding.bannerLayout);
+
+        llHelp = (LinearLayout) findViewById(R.id.llhelp);
         llprivacyPolicy = (LinearLayout) findViewById(R.id.llprivacypolicy);
 
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_setting);
@@ -73,9 +85,9 @@ public class SettingsActivity extends AppCompatActivity {
 
         colorize();
 
-        button.setOnClickListener(new View.OnClickListener(){
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 ColorChooserDialog dialog = new ColorChooserDialog(SettingsActivity.this);
                 dialog.setTitle("Select");
                 dialog.setColorListener(new ColorListener() {
@@ -86,7 +98,7 @@ public class SettingsActivity extends AppCompatActivity {
 
                         methods.setColorTheme();
                         editor.putInt("color", color);
-                        editor.putInt("theme",Constant.theme);
+                        editor.putInt("theme", Constant.theme);
                         editor.commit();
 
                         Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
@@ -136,7 +148,7 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-    private void colorize(){
+    private void colorize() {
         ShapeDrawable d = new ShapeDrawable(new OvalShape());
         d.setBounds(58, 58, 58, 58);
 
@@ -145,9 +157,10 @@ public class SettingsActivity extends AppCompatActivity {
 
         button.setBackground(d);
     }
+
     @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        switch (item.getItemId()){
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
             case android.R.id.home:
                 onBackPressed();
                 break;

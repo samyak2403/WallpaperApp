@@ -17,27 +17,32 @@
         android:supportsRtl="true"
         android:theme="@style/Base.Theme.WallpaperApp"
         tools:targetApi="31">
-
         <activity
-            android:name="com.arrowwouldpro.wallpaperapp.MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/Base.Theme.WallpaperApp.NoActionBar"
+            android:name=".openads.Splash_Screen"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.arrowwouldpro.wallpaperapp.ViewActivity"></activity>
-        <activity android:name="com.arrowwouldpro.wallpaperapp.SettingsActivity"></activity>
 
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Base.Theme.WallpaperApp.NoActionBar">
 
-        <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
-<!--        <meta-data-->
-<!--            android:name="com.google.android.gms.ads.APPLICATION_ID"-->
-<!--            android:value="ca-app-pub-3940256099942544~3347511713"/>-->
-
+        </activity>
+        <activity android:name=".ViewActivity" />
+        <activity android:name=".SettingsActivity" /> <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+        <!-- <meta-data -->
+        <!-- android:name="com.google.android.gms.ads.APPLICATION_ID" -->
+        <!-- android:value="ca-app-pub-3940256099942544~3347511713"/> -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/app_id" />
     </application>
 
 </manifest>
